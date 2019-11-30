@@ -91,6 +91,7 @@ class Example extends Component {
  rippleInsets      | Insets for ripple on base component           |   Object | { top: 16, bottom: -8 }
  rippleCentered    | Ripple on base component should be centered   |  Boolean | false
  renderBase        | Render base component                         | Function | -
+ renderItemContent | Render item content component                 | Function | -
  renderAccessory   | Render text field accessory                   | Function | -
  valueExtractor    | Extract value from item (args: item, index)   | Function | ({ value }) => value
  labelExtractor    | Extract label from item (args: item, index)   | Function | ({ label }) => label

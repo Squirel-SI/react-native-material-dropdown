@@ -144,6 +144,7 @@ export default class Dropdown extends PureComponent {
     onChangeText: PropTypes.func,
 
     renderBase: PropTypes.func,
+    renderItemContent: PropTypes.func,
     renderAccessory: PropTypes.func,
 
     containerStyle: (ViewPropTypes || View.propTypes).style,
@@ -188,7 +189,7 @@ export default class Dropdown extends PureComponent {
     };
   }
 
-  componentWillReceiveProps({ value }) {
+  UNSAFE_componentWillReceiveProps({ value }) {
     if (value !== this.props.value) {
       this.setState({ value });
     }
@@ -583,6 +584,7 @@ export default class Dropdown extends PureComponent {
       rippleOpacity,
       rippleDuration,
       shadeOpacity,
+      renderItemContent,
     } = this.props;
 
     let props = propsExtractor(item, index);
@@ -630,9 +632,12 @@ export default class Dropdown extends PureComponent {
 
     return (
       <DropdownItem index={index} {...props}>
-        <Text style={[styles.item, itemTextStyle, textStyle]} numberOfLines={1}>
-          {title}
-        </Text>
+        {'function' === typeof renderItemContent ?
+          renderItemContent({ ...props, index }) :
+          <Text style={[styles.item, itemTextStyle, textStyle]} numberOfLines={1}>
+            {title}
+          </Text>
+        }
       </DropdownItem>
     );
   }
