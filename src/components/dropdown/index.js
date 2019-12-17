@@ -423,7 +423,7 @@ export default class Dropdown extends PureComponent {
 
     let offset = 0;
     let itemCount = data.length;
-    let itemSize = this.itemSize();
+    let itemSize = this.props.itemSize || this.itemSize();
     let tailItemCount = this.tailItemCount();
     let visibleItemCount = this.visibleItemCount();
 
@@ -523,6 +523,7 @@ export default class Dropdown extends PureComponent {
     let {
       baseColor,
       rippleColor = baseColor,
+      itemSize,
       rippleOpacity,
       rippleDuration,
       rippleCentered,
@@ -533,7 +534,7 @@ export default class Dropdown extends PureComponent {
     let style = {
       ...insets,
 
-      height: this.itemSize() - bottom,
+      height: itemSize || this.itemSize() - bottom,
       position: 'absolute',
     };
 
@@ -576,6 +577,7 @@ export default class Dropdown extends PureComponent {
       propsExtractor,
       textColor,
       itemColor,
+      itemSize,
       baseColor,
       selectedItemColor = textColor,
       disabledItemColor = baseColor,
@@ -624,7 +626,7 @@ export default class Dropdown extends PureComponent {
     props.style = [
       style,
       {
-        height: this.itemSize(),
+        height: itemSize || this.itemSize(),
         paddingLeft: leftInset,
         paddingRight: rightInset,
       },
@@ -679,7 +681,7 @@ export default class Dropdown extends PureComponent {
     let itemCount = data.length;
     let visibleItemCount = this.visibleItemCount();
     let tailItemCount = this.tailItemCount();
-    let itemSize = this.itemSize();
+    let itemSize = props.itemSize || this.itemSize();
 
     let height = 2 * itemPadding + itemSize * visibleItemCount;
     let translateY = -itemPadding;

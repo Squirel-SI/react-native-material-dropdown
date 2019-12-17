@@ -78,6 +78,7 @@ class Example extends Component {
  dropdownPosition  | Dropdown position (dynamic if undefined)      |   Number | -
  itemCount         | Dropdown visible item count                   |   Number | 4
  itemPadding       | Dropdown item vertical padding                |   Number | 8
+ itemSize          | Dropdown item vertical size                   |   Number | -
  itemTextStyle     | Dropdown item text styles                     |   Object | -
  dropdownOffset    | Dropdown offset                               |   Object | { top: 32, left: 0 }
  dropdownMargins   | Dropdown margins                              |   Object | { min: 8, max: 16 }
